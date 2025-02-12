@@ -19,7 +19,7 @@ gitpr() {
          REPO_NAME="$(git remote get-url origin | sed 's|^git@gitlab.com:||' | sed 's|.git$||')"
          open "https://gitlab.com/${REPO_NAME}/-/merge_requests/new?merge_request%5Bsource_branch%5D=$(git branch --show-current)"
      else
-         git browse -- compare/$(git branch --show-current)'?quick_pull=1'
+         gh pr create --web
      fi
 }
 pushpr() {
