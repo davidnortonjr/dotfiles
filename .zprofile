@@ -8,6 +8,9 @@ gitdefaultbranch() {
 gitbranch() {
      git fetch origin && git checkout --no-track -b $1 origin/$(gitdefaultbranch)
 }
+gitmain() {
+    git checkout $(gitdefaultbranch) && git pull
+}
 gitpush() {
      git push --set-upstream origin $(git rev-parse --abbrev-ref HEAD)
 }
